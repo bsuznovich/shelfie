@@ -8,6 +8,9 @@ module.exports = {
 
     addProduct: (req,res) => {
         const db = req.app.get('db')
-        res.status(200).send(console.log('Bag of garbage','5','image of garbage'))
+        let {name, price, image} = req.body
+        db.create_product({name, price, image}).then(response => {
+            res.status(200).send(response)
+        }).catch(err => console.log(err))
     }
 }
