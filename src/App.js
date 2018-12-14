@@ -36,13 +36,14 @@ class App extends Component {
       image: '',
     })
   }
+  
 
   render() {
     return (
       <div className="App">
 
         <Dashboard inventory={this.state.inventory}/>
-        <Form />
+        <Form getInventory={this.componentDidMount}/>
         <Header />
 
         <input placeholder='Name'
