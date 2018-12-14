@@ -3,6 +3,7 @@ import './App.css';
 import Dashboard from './Components/Dashboard/Dashboard'
 import Form from './Components/Form/Form'
 import Header from './Components/Header/Header'
+import axios from 'axios';
 
 class App extends Component {
   constructor(){
@@ -12,24 +13,14 @@ class App extends Component {
       name: '',
       price: '',
       image: '',
-      inventory: [
-        {
-        name: 'bloop',
-        price: '5',
-        image: 'yeet'
-        },
-        {
-        name: 'bling',
-        price: '9',
-        image: 'yote'
-        },
-        {
-        name: 'blang',
-        price: '55',
-        image: 'yate'
-        }
-      ] 
+      inventory: [] 
     }
+  }
+
+  componentDidMount(){
+    axios.get('/api/inventory').then(res => {
+        this.setState({ inventory: res.data })
+      })
   }
 
   handleChange = (key,val) => {

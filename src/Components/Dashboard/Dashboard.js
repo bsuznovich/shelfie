@@ -6,17 +6,26 @@ export default class Dashboard extends Component{
         super(props)
     }
 
-    render(props){
+    render(){
         let inventoryList = this.props.inventory.map(item => {
             return(
                 <div>
-                    <Product name={item.name}
+                    <Product key={item.id}
+                    id={item.id}
+                    description={item.description}
+                    name={item.name}
                     price={item.price}
                     image={item.image} />
-                    <Product name={item.name}
+                    <Product key={item.id}
+                    id={item.id}
+                    description={item.description}
+                    name={item.name}
                     price={item.price}
                     image={item.image} />
-                    <Product name={item.name}
+                    <Product key={item.id}
+                    id={item.id}
+                    description={item.description}
+                    name={item.name}
                     price={item.price}
                     image={item.image} />
                 </div>
@@ -25,6 +34,7 @@ export default class Dashboard extends Component{
         return(
             <div>Dashboard
                 <Product />
+                {inventoryList}
             </div>
         )
     }
